@@ -8,7 +8,7 @@
       "promocodes": "أكواد الخصم",
       "shipping": "الشحن",
       "settings": "الإعدادات",
-      "shippin": "الشحن",
+      "shippingZone": "الشحن",
       "logout": "تسجيل الخروج"
    }
    ,
@@ -23,5 +23,10 @@
    "stockAlert":{
       "title": "تنبيه نقص المخزون",
       "viewAll": "عرض الكل"
+   },
+   "products":{
+      "title": "المنتجات",
+      "addNew": "إضافة",
+      "search": "بحث عن منتج..."
    }
 }

@@ -82,16 +82,16 @@ const Navbar = () => {
   return (
     <aside
       className={`
-        h-screen bg-[#CCE7FF] border-r
+        h-screen bg-[#CCE7FF] border-r border-[#99CFFF]
         flex flex-col
         transition-all duration-300
         ${isCollapsed ? "w-20" : "w-70"}
-        ${isRTL ? "border-l border-r-0" : ""}
+        ${isRTL ? "border-l border-r-0 border-[#99CFFF]" : ""}
       `}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* ===== Header ===== */}
-      <div className={`flex items-center gap-3 px-6 py-5 border-b ${isCollapsed ? "justify-center px-2" : ""}`}>
+      <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
           <>
             <div className="w-10 h-10 flex items-center justify-center rounded-md bg-blue-100">
@@ -147,7 +147,6 @@ const Navbar = () => {
                       ? "bg-blue-100 text-blue-600 font-semibold"
                       : "text-slate-600 hover:bg-slate-100"
                     }
-                    ${isRTL ? "flex-row-reverse text-right" : ""}
                     ${isCollapsed ? "justify-center px-2" : ""}
                   `}
                   title={isCollapsed ? link.label : ""}
@@ -164,7 +163,7 @@ const Navbar = () => {
       </nav>
 
       {/* ===== Footer ===== */}
-      <div className={`border-t px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
+      <div className={`border-t border-[#99CFFF] px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
         {!isCollapsed ? (
           <>
             <LangSwitch />
@@ -179,10 +178,11 @@ const Navbar = () => {
               "
             >
               <Logout />
-              <span className="text-sm">تسجيل الخروج</span>
+              <span className="text-sm">{t("navbar.logout")}</span>
             </button>
           </>
         ) : (
+          <>
           <button
             className="
               w-full flex items-center justify-center
@@ -196,6 +196,7 @@ const Navbar = () => {
           >
             <Logout />
           </button>
+          </>
         )}
       </div>
     </aside>

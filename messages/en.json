@@ -21,5 +21,10 @@
    "stockAlert":{
       "title": "Stock shortage alert",
       "viewAll": "View All"
+   },
+   "products":{
+      "title": "Products",
+      "addNew": "Add",
+      "search": "Search for a product..."
    }
 }
