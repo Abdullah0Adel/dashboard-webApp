@@ -84,7 +84,7 @@ const Navbar = () => {
   return (
     <aside
       className={`
-        h-screen bg-[#CCE7FF] border-r
+        h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
         lg:flex flex-col
         transition-all duration-300
         hidden
@@ -93,11 +93,10 @@ const Navbar = () => {
       `}
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* ===== Header ===== */}
-      <div className={`flex items-center gap-3 px-6 py-5 border-b ${isCollapsed ? "justify-center px-2" : ""}`}>
+      <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
           <>
-            <div className="w-10 h-10 flex items-center justify-center rounded-md bg-blue-100">
+            <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[#99CFFF]">
               <DefaultLogo />
             </div>
             <div className="flex flex-col">
@@ -167,7 +166,7 @@ const Navbar = () => {
       </nav>
 
       {/* ===== Footer ===== */}
-      <div className={`border-t px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
+      <div className={`border-t border-[#99CFFF] px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
         {!isCollapsed ? (
           <>
             <LangSwitch />
