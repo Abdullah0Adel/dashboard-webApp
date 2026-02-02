@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import {
   Cart,
@@ -17,8 +16,12 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import LangSwitch from "./NavBtn/LangSwitch";
 
+interface ArrowIconProps {
+  isCollapsed: boolean;
+  isRTL: boolean;
+}
 // Arrow Icon Component
-const ArrowIcon = ({ isCollapsed, isRTL }) => (
+const ArrowIcon = ({ isCollapsed, isRTL }: ArrowIconProps) => (
   <svg
     width="20"
     height="20"
@@ -28,11 +31,10 @@ const ArrowIcon = ({ isCollapsed, isRTL }) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className={`transition-transform duration-300 ${
-      isCollapsed 
-        ? (isRTL ? "rotate-180" : "rotate-0")
-        : (isRTL ? "rotate-0" : "rotate-180")
-    }`}
+    className={`transition-transform duration-300 ${isCollapsed
+      ? (isRTL ? "rotate-180" : "rotate-0")
+      : (isRTL ? "rotate-0" : "rotate-180")
+      }`}
   >
     <polyline points="15 18 9 12 15 6"></polyline>
   </svg>
@@ -82,14 +84,16 @@ const Navbar = () => {
   return (
     <aside
       className={`
-        h-screen bg-[#CCE7FF] border-r border-[#99CFFF]
-        flex flex-col
+        h-screen bg-[#CCE7FF] border-r
+        lg:flex flex-col
         transition-all duration-300
+        hidden
         ${isCollapsed ? "w-20" : "w-70"}
         ${isRTL ? "border-l border-r-0 border-[#99CFFF]" : ""}
       `}
       dir={isRTL ? "rtl" : "ltr"}
     >
+
       {/* ===== Header ===== */}
       <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
@@ -112,6 +116,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
 
       {/* ===== Toggle Button ===== */}
       <div className={`px-4 py-3 ${isCollapsed ? "px-2" : ""}`}>

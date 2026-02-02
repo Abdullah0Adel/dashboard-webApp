@@ -28,5 +28,29 @@
       "title": "المنتجات",
       "addNew": "إضافة",
       "search": "بحث عن منتج..."
+   },
+   "AddNewProduct":{
+      "title": "إضافة منتج جديد",
+      "productName": "اسم المنتج",
+      "description": "الوصف",
+      "price": "السعر",
+      "stock": "المخزون",
+      "category": "التصنيف",
+      "imageURL": "رابط الصورة",
+      "sizes": "المقاسات",
+      "colors": "الألوان",
+      "submit": "إضافة المنتج",
+      "selectCategory": "التصنيف",
+      "male": "رجالي",
+      "female": "نسائي",
+      "children": "أطفال",
+      "cancel": "إلغاء",
+      "addProduct": "إضافة المنتج"
+   },
+   "DeleteProduct":{
+      "title": "حذف المنتج",
+      "confirmation": "هل تريد حذف المنتج ؟",
+      "cancel": "إلغاء",
+      "delete": "حذف"
    }
 }

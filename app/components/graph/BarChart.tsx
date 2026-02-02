@@ -72,10 +72,6 @@ const SalesChart = () => {
         );
     }, [viewMode]);
 
-    const chartWidth =
-        chartData.length > MAX_VISIBLE_BARS
-            ? chartData.length * BAR_WIDTH
-            : 900;
 
     return (
         <>
@@ -124,17 +120,18 @@ const SalesChart = () => {
                     </div>
                 </div>
                 <div style={{ overflowX: "auto", width: "100%", maxWidth: '100vw' }}>
-                    <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+                    <ResponsiveContainer aspect={3} width="100%" height={CHART_HEIGHT}>
+
                         <BarChart
-                            width={chartWidth}
+                            className="lg:w-full w-1/2"
                             height={CHART_HEIGHT}
                             data={chartData}
 
                         >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
-                            <YAxis />
-                            <Tooltip />
+                            <YAxis tickCount={5} />
+                            <Tooltip cursor={{ fill: "transparent" }} />
 
                             <Bar dataKey="sold" radius={[10, 10, 0, 0]}>
                                 {chartData.map((entry, index) => (
@@ -150,6 +147,7 @@ const SalesChart = () => {
                                     />
                                 ))}
                             </Bar>
+
                         </BarChart>
                     </ResponsiveContainer>
                 </div>

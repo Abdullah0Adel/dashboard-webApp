@@ -1,6 +1,8 @@
 import React from 'react';
 import { TrashIcon, EditIcon } from '@/app/icons/icons';
 import Image from 'next/image';
+import ProductEdit from './ProductEdit';
+import ProductDelete from './ProductDelete';
 
 interface ProductCardProps {
   id: string;
@@ -25,6 +27,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
   onEdit,
   onDelete,
 }) => {
+
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  const handleEdit = () => {
+    setIsEditing(true);
+    onEdit?.(id);
+  };
+
+  const handleDelete = () => {
+    onDelete?.(id);
+  };
+
   return (
     <div className="grid grid-cols-[80px_1fr_100px_120px_100px_120px_100px] gap-4 items-center py-4 px-6 border-b border-gray-200 hover:bg-gray-50 transition-colors">
       {/* Image */}
@@ -68,20 +83,42 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* Actions */}
       <div className="flex gap-2 justify-center">
         <button
-          onClick={() => onEdit?.(id)}
+          onClick={() => {
+            handleEdit();
+
+          }}
           className="p-2 text-blue-500 hover:bg-blue-50 rounded transition-colors"
           aria-label="تعديل"
         >
           <EditIcon className="w-5 h-5" />
         </button>
         <button
-          onClick={() => onDelete?.(id)}
+          onClick={() => setIsDeleting(true)}
           className="p-2 text-red-500 hover:bg-red-50 rounded transition-colors"
           aria-label="حذف"
         >
           <TrashIcon className="w-5 h-5" />
         </button>
       </div>
+
+      <ProductEdit
+        id={id}
+        image={image}
+        name={name}
+        category={category}
+        price={price}
+        stock={stock}
+        rating={rating}
+      isOpen={isEditing}
+      onClose={() => setIsEditing(false)} onSubmit={() => {}} 
+      />
+
+      <ProductDelete
+      id={id} 
+      onDelete={handleDelete} 
+      isOpen={isDeleting}
+      onClose={() =>setIsDeleting(false)}
+      />
     </div>
   );
 };
