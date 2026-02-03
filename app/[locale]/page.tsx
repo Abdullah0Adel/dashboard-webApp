@@ -1,6 +1,6 @@
 import React from 'react'
-import SalesChart from '../components/graph/BarChart'
-import Stockalert from '../components/stockalert/Stockalert'
+import SalesChart from '../components/hero/graph/BarChart'
+import Stockalert from '../components/hero/stockalert/Stockalert'
 
 function page() {
   return (
