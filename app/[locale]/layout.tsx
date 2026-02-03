@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import LayoutProvider from "../components/LayoutProvider";
 import { routing } from "@/i18n/routing";
+import Providers from "../components/providers";
 
 const PoppinsFont = Poppins({
   variable: "--font-pp",
@@ -47,13 +48,16 @@ export default async function RootLayout({
   `}
       >
         <NextIntlClientProvider messages={messages || {}}>
-          <LayoutProvider>
-            <main className="grow flex flex-col items-center  w-full lg:w-[calc(100%-24rem)]" >
-              {children}
-            </main>
-          </LayoutProvider>
+          <Providers>
+            <LayoutProvider>
+              <main className="grow flex flex-col items-center  w-full lg:w-[calc(100%-24rem)]" >
+                {children}
+              </main>
+            </LayoutProvider>
+          </Providers>
         </NextIntlClientProvider>
+
       </body>
-    </html>
+    </html >
   );
 }

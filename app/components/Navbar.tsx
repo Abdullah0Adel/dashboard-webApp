@@ -15,6 +15,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import LangSwitch from "./NavBtn/LangSwitch";
+import { useTheme } from "../hooks/themeHooks";
 
 interface ArrowIconProps {
   isCollapsed: boolean;
@@ -44,6 +45,7 @@ const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const locale = pathname?.split("/")[1];
+  const { theme } = useTheme();
   const t = useTranslations();
 
   const isRTL = locale === "ar";
@@ -85,17 +87,17 @@ const Navbar = () => {
     <aside
       className={`
     fixed top-0
-    min-h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
+    min-h-screen ${theme === "dark" ? "bg-[#1A1A1A] text-white border-[#00294C]" : "bg-[#E5F3FF]/90 border-[#D1E9FF]"} border-r 
     flex flex-col z-50
     ${isRTL ? "left-0 border-l border-r-0" : "right-0"}
     transition-all duration-300
     ${isCollapsed ? "w-20" : "w-20 lg:w-70"}
   `}
     >
-      <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
+      <div className={`flex items-center gap-3 px-6 py-5 border-b ${theme === "dark" ? "border-[#00294C]" : "border-[#99CFFF]"}  ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
           <>
-            <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[#99CFFF]">
+            <div className={`w-10 h-10 flex items-center justify-center rounded-md ${theme === "dark" ? "bg-slate-800" : "bg-[#99CFFF]"}`}>
               <DefaultLogo />
             </div>
             <div className="hidden lg:flex flex-col">
@@ -108,7 +110,7 @@ const Navbar = () => {
             </div>
           </>
         ) : (
-          <div className="w-10 h-10 flex items-center justify-center rounded-md bg-blue-100">
+          <div className={`w-10 h-10 flex items-center justify-center rounded-md ${theme === "dark" ? "bg-transparent" : "bg-[#99CFFF]"} `}>
             <DefaultLogo />
           </div>
         )}
@@ -118,10 +120,9 @@ const Navbar = () => {
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className={`
-            flex items-center justify-center
+            lg:flex hidden items-center justify-center
             w-full p-2 rounded-lg
-            bg-blue-100 hover:bg-blue-200
-            text-blue-600
+            ${theme === "dark" ? "text-[#1A94FF] bg-[#00294C]" : "hover:bg-slate-100 bg-blue-100  text-blue-600"}
             transition-all duration-200
           `}
           title={isCollapsed ? "توسيع القائمة" : "تصغير القائمة"}
@@ -141,12 +142,13 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   className={`
-                    flex items-center gap-3 px-4 py-3 rounded-lg
+                    ${theme === "dark" ? `${isActive ? "text-[#1A94FF] font-semibold" : "hover:bg-[#00294C] text-white"}` : `${isActive
+                      ? "bg-blue-100 text-[#1A94FF] font-semibold "
+                      : " hover:bg-slate-100 text-[#333333] rounded-lg"
+                      }`}
+                    flex items-center gap-3 px-4 py-3
                     transition-all duration-200
-                    ${isActive
-                      ? "bg-blue-100 text-blue-600 font-semibold"
-                      : "text-slate-600 hover:bg-slate-100"
-                    }
+                   
                     ${isRTL ? "flex-row-reverse text-right" : ""}
                     ${isCollapsed ? "justify-center px-2" : ""}
                   `}
@@ -164,19 +166,19 @@ const Navbar = () => {
       </nav>
 
       {/* ===== Footer ===== */}
-      <div className={`border-t border-[#99CFFF] px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
+      <div className={`border-t ${theme === "dark" ? "border-[#00294C]" : "border-[#99CFFF]"} border-[#99CFFF] px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
         {!isCollapsed ? (
           <>
             <LangSwitch langText={locale === "ar" ? "English" : "Arabic"} />
             <button
-              className="
+              className={` 
                 w-full flex items-center justify-center gap-2
                 px-4 py-2 rounded-lg
                 text-red-600 border border-red-200
                 hover:bg-red-50
                 active:bg-red-600 active:text-white
                 transition
-              "
+               `}
             >
               <Logout />
               <span className="text-sm">تسجيل الخروج</span>
