@@ -5,7 +5,10 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="flex items-start w-full min-h-screen overflow-hidden">
             <Navbar />
-            {children}
+
+            <main className="flex-wrap grow flex flex-col items-center  w-full">
+                {children}
+            </main>
         </div>
     );
 };

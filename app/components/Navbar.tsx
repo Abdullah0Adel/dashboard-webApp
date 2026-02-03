@@ -84,16 +84,13 @@ const Navbar = () => {
   return (
     <aside
       className={`
-        min-h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
-        flex flex-col
-         z-50  ${isRTL ? "left-0" : "right-0"}
-        ${isCollapsed ? "fixed" : "overflow-y-auto"}
-        transition-all duration-300
-        
-        ${isCollapsed ? "w-20" : " w-20 lg:w-70"}
-        ${isRTL ? "border-l border-r-0" : ""}
-      `}
-      dir={isRTL ? "rtl" : "ltr"}
+    fixed top-0
+    min-h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
+    flex flex-col z-50
+    ${isRTL ? "left-0 border-l border-r-0" : "right-0"}
+    transition-all duration-300
+    ${isCollapsed ? "w-20" : "w-20 lg:w-70"}
+  `}
     >
       <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
