@@ -9,7 +9,7 @@ const Stockalert = () => {
   const t = useTranslations();
 
   return (
-    <section className="w-full bg-[#FF383C26] p-4 rounded-xl mt-4">
+    <section className="xl:w-11/12 lg:w-4/5 md:w-[70%] sm:w-[42%] xs:w-[30%] w-full  bg-[#FF383C26] p-4 rounded-xl mt-4">
       <div className="flex justify-between w-full">
         <nav className="flex items-center gap-2">
           <Image loading='lazy' src="/alert-triangle-svgrepo-com.svg" width={30} height={30} alt="stockalert" />

@@ -39,18 +39,19 @@ export default async function RootLayout({
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale} dir={hasLocale(["ar"], locale) ? "rtl" : "ltr"}>
+    <html className="dark" lang={locale} dir={hasLocale(["ar"], locale) ? "rtl" : "ltr"}>
+
       <body
         className={`
     ${PoppinsFont.variable}
     ${arabicFont.variable}
-    antialiased
+    antialiased 
   `}
       >
         <NextIntlClientProvider messages={messages || {}}>
           <Providers>
             <LayoutProvider>
-              <main className="grow flex flex-col items-center  w-full lg:w-[calc(100%-24rem)]" >
+              <main className="grow flex flex-col items-center justify-center  p-4 xl:ml-64 lg:ml-28 md:ml-20 sm:ml-20" >
                 {children}
               </main>
             </LayoutProvider>

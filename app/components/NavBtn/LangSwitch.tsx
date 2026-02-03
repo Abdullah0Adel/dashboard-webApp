@@ -32,7 +32,7 @@ const LangSwitch = ({ langText }: { langText?: string }) => {
             onClick={handleLanguageChange}
             className={`border-2 ${theme === "dark" ? "text-white border-[#66B8FF]" : "text-black border-[#99CFFF]"}   rounded-md p-1 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#387aff] hover:border-[#387aff] active:bg-[#387aff] active:text-white transition duration-300 `}
         >
-            {langText && <span className="font-semibold  lg:flex hidden ">{langText}</span>}
+            {langText && <span className="font-semibold  xl:flex hidden ">{langText}</span>}
             <IoLanguageSharp size={20} />
         </div>
     );

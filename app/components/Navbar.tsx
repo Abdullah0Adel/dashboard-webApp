@@ -86,12 +86,11 @@ const Navbar = () => {
   return (
     <aside
       className={`
-    fixed top-0
     min-h-screen ${theme === "dark" ? "bg-[#1A1A1A] text-white border-[#00294C]" : "bg-[#E5F3FF]/90 border-[#D1E9FF]"} border-r 
     flex flex-col z-50
     ${isRTL ? "left-0 border-l border-r-0" : "right-0"}
     transition-all duration-300
-    ${isCollapsed ? "w-20" : "w-20 lg:w-70"}
+    ${isCollapsed ? "w-20 fixed" : "w-20 xl:w-64 fixed top-0 left-0 z-40 h-full transition-transform -translate-x-full sm:translate-x-0"}
   `}
     >
       <div className={`flex items-center gap-3 px-6 py-5 border-b ${theme === "dark" ? "border-[#00294C]" : "border-[#99CFFF]"}  ${isCollapsed ? "justify-center px-2" : ""}`}>
@@ -100,7 +99,7 @@ const Navbar = () => {
             <div className={`w-10 h-10 flex items-center justify-center rounded-md ${theme === "dark" ? "bg-slate-800" : "bg-[#99CFFF]"}`}>
               <DefaultLogo />
             </div>
-            <div className="hidden lg:flex flex-col">
+            <div className="hidden xl:flex flex-col">
               <span className="font-semibold text-sm">
                 {t("navbar.board")}
               </span>
@@ -115,22 +114,6 @@ const Navbar = () => {
           </div>
         )}
       </div>
-
-      <div className={`px-4 py-3 ${isCollapsed ? "px-2" : ""}`}>
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className={`
-            lg:flex hidden items-center justify-center
-            w-full p-2 rounded-lg
-            ${theme === "dark" ? "text-[#1A94FF] bg-[#00294C]" : "hover:bg-slate-100 bg-blue-100  text-blue-600"}
-            transition-all duration-200
-          `}
-          title={isCollapsed ? "توسيع القائمة" : "تصغير القائمة"}
-        >
-          <ArrowIcon isCollapsed={isCollapsed} isRTL={isRTL} />
-        </button>
-      </div>
-
       {/* ===== Nav ===== */}
       <nav className="flex-1 px-4 py-6">
         <ul className="space-y-2">
@@ -156,7 +139,7 @@ const Navbar = () => {
                 >
                   <span className="text-lg">{link.icon}</span>
                   {!isCollapsed && (
-                    <span className="text-sm lg:flex hidden">{link.label}</span>
+                    <span className="text-sm xl:flex hidden">{link.label}</span>
                   )}
                 </Link>
               </li>
@@ -181,7 +164,7 @@ const Navbar = () => {
                `}
             >
               <Logout />
-              <span className="text-sm">تسجيل الخروج</span>
+              <span className="text-sm xl:flex hidden">تسجيل الخروج</span>
             </button>
           </>
         ) : (
