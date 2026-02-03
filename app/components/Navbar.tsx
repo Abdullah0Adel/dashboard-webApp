@@ -84,11 +84,13 @@ const Navbar = () => {
   return (
     <aside
       className={`
-        h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
-        lg:flex flex-col
+        min-h-screen bg-[#E5F3FF]/90 border-r border-[#D1E9FF]
+        flex flex-col
+         z-50  ${isRTL ? "left-0" : "right-0"}
+        ${isCollapsed ? "fixed" : "overflow-y-auto"}
         transition-all duration-300
-        hidden
-        ${isCollapsed ? "w-20" : "w-70"}
+        
+        ${isCollapsed ? "w-20" : " w-20 lg:w-70"}
         ${isRTL ? "border-l border-r-0" : ""}
       `}
       dir={isRTL ? "rtl" : "ltr"}
@@ -99,7 +101,7 @@ const Navbar = () => {
             <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[#99CFFF]">
               <DefaultLogo />
             </div>
-            <div className="flex flex-col">
+            <div className="hidden lg:flex flex-col">
               <span className="font-semibold text-sm">
                 {t("navbar.board")}
               </span>
@@ -115,7 +117,6 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* ===== Toggle Button ===== */}
       <div className={`px-4 py-3 ${isCollapsed ? "px-2" : ""}`}>
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
@@ -156,7 +157,7 @@ const Navbar = () => {
                 >
                   <span className="text-lg">{link.icon}</span>
                   {!isCollapsed && (
-                    <span className="text-sm">{link.label}</span>
+                    <span className="text-sm lg:flex hidden">{link.label}</span>
                   )}
                 </Link>
               </li>
@@ -169,7 +170,7 @@ const Navbar = () => {
       <div className={`border-t border-[#99CFFF] px-4 py-4 space-y-3 ${isCollapsed ? "px-2" : ""}`}>
         {!isCollapsed ? (
           <>
-            <LangSwitch />
+            <LangSwitch langText={locale === "ar" ? "English" : "Arabic"} />
             <button
               className="
                 w-full flex items-center justify-center gap-2
@@ -185,6 +186,9 @@ const Navbar = () => {
             </button>
           </>
         ) : (
+          <LangSwitch />
+        )}
+        {isCollapsed && (
           <button
             className="
               w-full flex items-center justify-center
