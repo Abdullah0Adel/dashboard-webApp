@@ -76,7 +76,7 @@ const SalesChart = () => {
     return (
         <>
             <div
-                className="w-full p-4 bg-[#E5F3FF] mt-4 rounded-xl"
+                className="xl:w-11/12 lg:w-4/5 md:w-[70%] sm:w-[42%] xs:w-[30%] w-full  p-4 bg-[#E5F3FF] mt-4 rounded-xl"
             >
                 <div className="flex lg:flex-row flex-col items-center justify-between mb-3">
                     <div className="flex gap-2 mb-3">
@@ -119,8 +119,8 @@ const SalesChart = () => {
                         </p>
                     </div>
                 </div>
-                <div style={{ overflowX: "auto", width: "100%", maxWidth: '100vw' }}>
-                    <ResponsiveContainer aspect={3} width="100%" height={CHART_HEIGHT}>
+                <div className="w-full md:max-w-4xl lg:max-w-6xl overflow-auto">
+                    <ResponsiveContainer aspect={3} className={"lg:w-full w-1/2"} height={CHART_HEIGHT}>
 
                         <BarChart
                             className="lg:w-full w-1/2"

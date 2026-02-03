@@ -39,12 +39,13 @@ export default async function RootLayout({
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale} dir={hasLocale(["ar"], locale) ? "rtl" : "ltr"}>
+    <html className="dark" lang={locale} dir={hasLocale(["ar"], locale) ? "rtl" : "ltr"}>
+
       <body
         className={`
     ${PoppinsFont.variable}
     ${arabicFont.variable}
-    antialiased
+    antialiased 
   `}
       >
         <NextIntlClientProvider messages={messages || {}}>

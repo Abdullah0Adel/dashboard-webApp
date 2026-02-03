@@ -5,7 +5,7 @@ import Recentorders from '../components/hero/orders/Recentorders'
 
 function page() {
   return (
-    <div className="px-6 py-4 w-full max-w-7xl">
+    <div className="px-8 py-4  flex flex-col items-center justify-center w-full">
       <SalesChart />
       <Stockalert />
       <Recentorders />
