@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 
-const LangSwitch = () => {
+const LangSwitch = ({ langText }: { langText?: string }) => {
     const locale = useLocale();
     const t = useTranslations();
     const pathname = usePathname();
@@ -29,7 +29,7 @@ const LangSwitch = () => {
             onClick={handleLanguageChange}
             className="border-2 border-[#99CFFF] rounded-md p-1 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#387aff] hover:border-[#387aff] active:bg-[#387aff] active:text-white transition duration-300 text-black"
         >
-            {locale === "ar" ? "English" : "Arabic"}
+            {langText && <span className="font-semibold  lg:flex hidden ">{langText}</span>}
             <img src="/language-svgrepo-com.svg" className="w-6 h-6" alt="language" />
         </div>
     );

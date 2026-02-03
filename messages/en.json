@@ -18,8 +18,9 @@
       "ByCategory": "By Category",
       "ByProduct": "By Product"
    },
-   "stockAlert":{
-      "title": "Stock shortage alert",
+   "hero":{
+      "title1": "Stock shortage alert",
+      "title2": "Recent orders",
       "viewAll": "View All"
    },
    "products":{
@@ -50,5 +51,10 @@
       "confirmation": "Are you sure you want to delete this product?",
       "cancel": "Cancel",
       "delete": "Delete"
+   },
+   "settings":{
+      "title": "Settings",
+      "header": "Customize the look and features of your store"
    }
+
 }
