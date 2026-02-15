@@ -52,7 +52,7 @@ const Navbar = () => {
     {
       href: `/${locale}`,
       label: t("navbar.board"),
-      icon: <ControlPanel />,
+      icon: <ControlPanel className="w-6 h-6" />,
     },
     {
       href: `/${locale}/products`,
@@ -88,7 +88,7 @@ const Navbar = () => {
         lg:flex flex-col
         transition-all duration-300
         hidden
-        ${isCollapsed ? "w-20" : "w-70"}
+        ${isCollapsed ? "w-20" : "w-72"}
         ${isRTL ? "border-l border-r-0 border-[#99CFFF]" : ""}
       `}
       dir={isRTL ? "rtl" : "ltr"}
@@ -96,14 +96,14 @@ const Navbar = () => {
       <div className={`flex items-center gap-3 px-6 py-5 border-b border-[#99CFFF] ${isCollapsed ? "justify-center px-2" : ""}`}>
         {!isCollapsed ? (
           <>
-            <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[#99CFFF]">
+            <div className="w-10 md:w-15 md:h-15 h-10 flex items-center justify-center rounded-md bg-[#99CFFF]">
               <DefaultLogo />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-sm">
+              <span className="font-semibold text-xl">
                 {t("navbar.board")}
               </span>
-              <span className="text-xs text-slate-500">
+              <span className="text-md text-slate-500">
                 {t("navbar.user")}
               </span>
             </div>
@@ -154,9 +154,9 @@ const Navbar = () => {
                   `}
                   title={isCollapsed ? link.label : ""}
                 >
-                  <span className="text-lg">{link.icon}</span>
+                  <span className="w-6 h-6">{link.icon}</span>
                   {!isCollapsed && (
-                    <span className="text-sm">{link.label}</span>
+                    <span className="text-xl">{link.label}</span>
                   )}
                 </Link>
               </li>

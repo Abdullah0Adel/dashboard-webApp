@@ -60,6 +60,29 @@
    },
    "settings":{
       "title": "الإعدادات",
-      "header": "قم بتخصيص مظهر متجرك وميزاته"
+      "header": "قم بتخصيص مظهر متجرك وميزاته",
+      "brand": "العلامة التجارية",
+      "Payment&Shipping": "الدفع والشحن",
+      "pages&sections": "الصفحات والاقسام",
+      "storeName": "اسم المتجر",
+      "subdomain": "النطاق الفرعي",
+      "logo": "لوجو",
+      "saveSettings": "حفظ الاعدادت",
+      "paymentMethod": "طرق الدفع",
+      "cashOnDelivery": "الدفع عند الاستلام",
+      "electronicPayment": "الدفع الالكترونى ( البطاقه البنكيه )",
+      "shippingPoliciesAR": "سياسة الشحن",
+      "shippingPoliciesEN": "Shipping Policy",
+      "availablePages": "الصفحات المتاحة",
+      "main": "الرئيسية",
+      "products": "المنتجات",
+      "aboutUs": "نبذة عنا",
+      "contactUs": "اتصل بنا",
+      "mainPageSections": "أقسام الصفحة الرئيسية",
+      "mainSection": "القسم الرئيسي",
+      "featuredSection": "القسم المميز",
+      "categories": "التصنيفات",
+      "testimonials": "آراء العملاء"
+
    }
 }

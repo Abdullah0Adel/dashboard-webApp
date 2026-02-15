@@ -39,3 +39,4 @@ const LangSwitch = ({ langText }: { langText?: string }) => {
 };
 
 export default LangSwitch;
+ 

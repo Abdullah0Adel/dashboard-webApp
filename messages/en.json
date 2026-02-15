@@ -54,7 +54,30 @@
    },
    "settings":{
       "title": "Settings",
-      "header": "Customize the look and features of your store"
+      "header": "Customize the look and features of your store",
+      "brand": "Brand",
+      "Payment&Shipping": "Payment & Shipping",
+      "pages&sections": "Pages & Sections",
+      "storeName": "Store Name",
+      "subdomain": "Subdomain",
+      "logo": "Logo",
+      "saveSettings": "Save Settings",
+      "paymentMethod": "Payment Methods",
+      "cashOnDelivery": "Cash on Delivery",
+      "electronicPayment": "Electronic Payment (Visa)",
+      "shippingPoliciesAR": "سياسة الشحن",
+      "shippingPoliciesEN": "Shipping Policies",
+      "availablePages": "Available Pages",
+      "main": "Main",
+      "products": "Products",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "mainPageSections": "Main Page Section",
+      "mainSection": "Main Section",
+      "featuredSection": "Featured Section",
+      "categories": "Categories",
+      "testimonials": "Testimonials"
+
    }
 
 }
