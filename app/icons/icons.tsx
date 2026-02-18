@@ -33,6 +33,13 @@ export const Products: React.FC<IconProps> = ({ className = "w-7 h-7" }) => (
     <path fillRule="evenodd" clipRule="evenodd" d="M12 0L24 6.92819V20.7846L12 27.7128L0 20.7846V6.92819L12 0ZM7.99994 12.9324L8 22.3243L10.6667 23.864V14.472L7.99994 12.9324ZM2.66669 9.85331V19.245L5.33331 20.7847V11.3929L2.66669 9.85331ZM17.2494 6.10994L9.40081 10.6622L12 12.1628L19.8667 7.621L17.2494 6.10994ZM12 3.07919L4.13331 7.62106L6.73719 9.12431L14.5859 4.57212L12 3.07919Z" fill="currentColor" />
   </svg>
 );
+export const Categories: React.FC<IconProps> = ({ className = "w-7 h-7" }) => (
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"  className={className}>
+<path d="M16 4V28" stroke="currentColor" strokeWidth="2.30657" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M25.3333 4H6.66667C5.19391 4 4 5.19391 4 6.66667V25.3333C4 26.8061 5.19391 28 6.66667 28H25.3333C26.8061 28 28 26.8061 28 25.3333V6.66667C28 5.19391 26.8061 4 25.3333 4Z" stroke="currentColor" strokeWidth="2.30657" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M4 12H28M4 20H28" stroke="currentColor" strokeWidth="2.30657" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+);
 
 export const Cart: React.FC<IconProps> = ({ className = "w-7 h-7" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 27 27" fill="none" className={className}>

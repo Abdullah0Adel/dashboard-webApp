@@ -2,6 +2,7 @@
 import { useState } from "react";
 import {
   Cart,
+  Categories,
   ControlPanel,
   DefaultLogo,
   Logout,
@@ -58,6 +59,11 @@ const Navbar = () => {
       href: `/${locale}/products`,
       label: t("navbar.Products"),
       icon: <Products />,
+    },
+    {
+      href: `/${locale}/categories`,
+      label: t("navbar.categories"),
+      icon: <Categories />
     },
     {
       href: `/${locale}/orders`,

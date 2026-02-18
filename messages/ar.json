@@ -4,6 +4,7 @@
       "user": "مسؤول",
       "board": "لوحة التحكم الإدارية",
       "Products": "المنتجات",
+      "categories": "التصنيفات",
       "orders": "الطلبات",
       "promocodes": "أكواد الخصم",
       "shipping": "الشحن",
@@ -84,5 +85,9 @@
       "categories": "التصنيفات",
       "testimonials": "آراء العملاء"
 
+   },
+   "categories":{
+      "title": "التصنيفات",
+      "subTitle": "قم بتنظيم المنتجات في فئات"
    }
 }

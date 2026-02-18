@@ -4,6 +4,7 @@
       "user": "Admin",
       "board": "Admin Dashboard",
       "Products": "Products",
+      "categories": "Categories",
       "orders": "Orders",
       "promocodes": "Promo Codes",
       "shippingZone": "Shipping",
@@ -77,6 +78,11 @@
       "featuredSection": "Featured Section",
       "categories": "Categories",
       "testimonials": "Testimonials"
+
+   },
+      "categories":{
+      "title": "Categories",
+      "subTitle": "Organize products into categories"
 
    }
 
