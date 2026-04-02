@@ -55,10 +55,6 @@
       "cancel": "إلغاء",
       "delete": "حذف"
    },
-   "orders":{
-      "title": "الطلبات",
-      "search": "بحث عن طلب..."
-   },
    "settings":{
       "title": "الإعدادات",
       "header": "قم بتخصيص مظهر متجرك وميزاته",
@@ -89,5 +85,28 @@
    "categories":{
       "title": "التصنيفات",
       "subTitle": "قم بتنظيم المنتجات في فئات"
+   },
+   "orders":{
+   "title": "الطلبات",
+   "search": "بحث عن طلب...",
+   "orderNumber": "رقم الأوردر",
+   "clientName": "اسم العميل",
+   "orderStatus":  "حالة الطلب",
+   "orderDate": "تاريخ الطلب",
+   "account": "الحساب",
+   "orderDetails": "تفاصيل الطلب"
+   },
+      "shipping": {
+      "title": "مناطق الشحن"
+
+   },
+   "promocodes": {
+      "title": "أكواد الخصم",
+      "codes": "كود",
+      "disccount": "خصم",
+      "usage": "استخدام",
+      "expireDate": "تاريخ الانتهاء",
+      "status": "حاله",
+      "Action": "أكشن"
    }
 }

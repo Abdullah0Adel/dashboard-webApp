@@ -84,6 +84,28 @@
       "title": "Categories",
       "subTitle": "Organize products into categories"
 
+   },
+      "orders":{
+   "title": "Orders",
+   "search": "Search for Orders....",
+   "orderNumber": "Order Number",
+   "clientName": "Client Name",
+   "orderStatus": "Order Status",
+   "orderDate": "Order Date",
+   "account": "Account",
+   "orderDetails": "Order Details"
+   },
+   "shipping": {
+      "title": "Shipping Zones"
+   },
+   "promocodes": {
+      "title": "Promo Codes",
+      "codes": "Codes",
+      "disccount": "Discount",
+      "usage": "Usage",
+      "expireDate": "Expire Date",
+      "status": "Status",
+      "Action": "Action"
    }
 
 }

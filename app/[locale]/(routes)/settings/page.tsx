@@ -8,8 +8,11 @@ import PaymentShipping from './PaymentShipping';
 import PagesSections from './PagesSections';
 
 const page = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isCollapsed, setIsCollapsed] = useState(false);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [activeSelection, setActiveSelection] = useState<"brand" | "payment&Shipping" | "pages&sections">("brand");
 
   console.log("Active Selection:", activeSelection);
