@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import "../globals.css";
+// import "../globals.css";
 import { Cairo, Poppins } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import LayoutProvider from "../components/LayoutProvider";
 import { routing } from "@/i18n/routing";
 import Providers from "../components/providers";
+import { makeStore, AppStore } from '../store/store'
+import { Provider } from "react-redux";
+import { useRef } from "react";
 
 const PoppinsFont = Poppins({
   variable: "--font-pp",
@@ -38,6 +41,13 @@ export default async function RootLayout({
   }
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const storeRef = useRef<AppStore>(undefined)
+  if (!storeRef.current) {
+    // Create the store instance the first time this renders
+    storeRef.current = makeStore()
+  }
+
   return (
     <html className="dark" lang={locale} dir={hasLocale(["ar"], locale) ? "rtl" : "ltr"}>
 
@@ -49,13 +59,15 @@ export default async function RootLayout({
   `}
       >
         <NextIntlClientProvider messages={messages || {}}>
-          <Providers>
-            <LayoutProvider>
-              <main className="grow flex flex-col  w-full " >
-                {children}
-              </main>
-            </LayoutProvider>
-          </Providers>
+          <Provider store={storeRef.current}>
+            <Providers >
+              <LayoutProvider>
+                <main className="grow flex flex-col  w-full " >
+                  {children}
+                </main>
+              </LayoutProvider>
+            </Providers>
+          </Provider>
         </NextIntlClientProvider>
 
       </body>
