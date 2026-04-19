@@ -3,9 +3,12 @@
 import { PlusIcon, SearchIcon } from '@/app/icons/icons';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProductCard from './productCard';
 import ProductModal from './ProductModal';
+import axios from 'axios';
+import { ProductPayload } from '@/app/store/features/products/types';
+import { useAddProductMutation } from '@/app/store/features/products/productsApi';
 
 // Sample data - replace with your actual data
 const sampleProducts = [
@@ -75,6 +78,50 @@ const Page = () => {
     // Add your delete logic here
   };
 
+useEffect(() => {
+  const getProducts = () => {
+    console.log("Fetching Data ...");
+
+    try {
+      let url = `http://localhost:1337/api/products`;
+      axios
+        .get(url, {
+          params: {
+            // بنقول لستراپي ابعت الـ ProductColor وجواه الـ sizes
+            populate: {
+              ProductColor: {
+                populate: {
+                  sizes: true, // أو '*' لو عايز كل اللي جوه الـ sizes
+                },
+              },
+              // لو عندك صور محتاج تجيبها مع الـ populate الرئيسي
+              images: true, 
+              thumnail: true,
+            },
+          },
+        })
+        .then((res) => {
+          console.log(res.data.data);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getProducts();
+}, []);
+
+
+  const [addProduct, { isLoading }] = useAddProductMutation()
+
+  const handleSubmit = async (data: ProductPayload) => {
+    try {
+      await addProduct(data).unwrap()
+      alert('تمت الإضافة!')
+    } catch (err) {
+      console.error('فشل:', err)
+    }
+  }
 return (
   <div className="flex flex-col h-screen">
     <header className="bg-[#CCE7FF] py-3 px-8 h-30.25 flex items-center justify-center">
@@ -138,7 +185,7 @@ return (
           <ProductModal 
           isOpen={isModalOpen} 
           onClose={() => setIsModalOpen(false)} 
-          onSubmit={(data) => console.log(data)}
+          onSubmit={handleSubmit}
           /> 
         </div>
       </div>

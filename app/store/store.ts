@@ -1,22 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from './features/theme/themeSlice'
+import productsReducer from './features/products/productsSlice'
+import { productsApi } from './features/products/productsApi'
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {
-        theme: themeReducer,
-    },
-      middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware), // ✅ جديد
-    })
-}
+  reducer: {
+    theme:                       themeReducer,
+    products:                    productsReducer,
+    [productsApi.reducerPath]:   productsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productsApi.middleware),  });
+};
 
-// Infer the type of makeStore
-export type AppStore = ReturnType<typeof makeStore>
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>
-export type AppDispatch = AppStore['dispatch']
-
-
-
-
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
