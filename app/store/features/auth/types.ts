@@ -11,7 +11,12 @@ export interface AuthState {
     error: string | null;
 }
 
-export interface LoadingPayload {
-    identifire: string; //username OR email
+export interface LogingPayload {
+    identifier: string; //username OR email
     password: string;
 }
+
+export interface StrapiAuthResponse {
+    jwt: string;
+    user: User
+} 

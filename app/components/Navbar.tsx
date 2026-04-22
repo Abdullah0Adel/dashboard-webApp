@@ -16,6 +16,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import LangSwitch from "./NavBtn/LangSwitch";
+import { useAuth } from "../hooks/useAuth";
 
 interface ArrowIconProps {
   isCollapsed: boolean;
@@ -86,6 +87,8 @@ const Navbar = () => {
       icon: <Settings />,
     },
   ];
+  const { logout } = useAuth();
+
 
   return (
     <aside
@@ -185,8 +188,9 @@ const Navbar = () => {
                 active:bg-red-600 active:text-white
                 transition
               "
+              onClick={logout}
             >
-              <Logout />
+              <Logout  />
               <span className="text-sm">{t("navbar.logout")}</span>
             </button>
           </>
